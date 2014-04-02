@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/jtegwen/projects/platform/module/Admin/src/Admin/Entity'
+let g:netrw_dirhist_2='/home/jtegwen/projects/platform/module/Admin/src/Admin/Entity/Definition'
+let g:netrw_dirhist_3='/home/jtegwen/projects/platform/vendor'
+let g:netrw_dirhist_4='/home/jtegwen/projects/platform/module/Network'
+let g:netrw_dirhist_5='/home/jtegwen/projects/platform/module/Site/src/Site/Controller'
+let g:netrw_dirhist_6='/home/jtegwen/projects/platform/tests'
+let g:netrw_dirhist_7='/home/jtegwen/projects/platform/module/Network/src/Network/Service'

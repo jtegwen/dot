@@ -1,0 +1,11 @@
+[user]
+	name = Joelle Tegwen
+	email = jtegwen@gmail.com
+[core]
+	editor = vim
+	autocrlf = input
+[merge]
+	tool = vimdiff
+[color]
+	ui = true
+

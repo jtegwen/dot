@@ -1,0 +1,93 @@
+:colo pablo                         " color scheme
+:set backspace=start,indent,eol     " backspace everywhere
+:set expandtab                      " replace tabs with spaces
+:set hlsearch
+:set tabstop=4                      " tabbing over increments 4 spaces
+:set nu                             " show line numbers
+:set autoindent                     " intent new lines to last position
+:retab
+:set shiftwidth=4                   " tabs = 4 spaces
+set showmatch                       " highlight search results
+nnoremap <CR> :noh<CR><CR>          " clears search highlighting with enter key
+set mouse=a                         " allow mouse scrolling, highlighting, clicks
+set wildmode=longest,full           " tab filename completion to longest unique match (like bash)
+:nmap ^_ :set mouse=a<CR>           " turns the mouse on
+:nmap _ :set mouse=<CR>             " disables the mouse for saving to OS buffer on MacOSX
+autocmd VimResized * wincmd =
+
+" from https://github.com/docwhat/homedir-vim/
+" and http://stackoverflow.com/questions/4331776/change-vim-swap-backup-undo-file-name
+" Save your backups to a less annoying place than the current directory.
+" If you have .vim-backup in the current directory, it'll use that.
+" Otherwise it saves it to ~/.vim/backup or . if all else fails.
+if isdirectory($HOME . '/.vim/backup') == 0
+  :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
+endif
+set backupdir-=.
+set backupdir+=.
+set backupdir-=~/
+set backupdir^=~/.vim/backup/
+set backupdir^=./.vim-backup/
+set backup
+
+
+" use more common shortcuts for saving files
+:nmap <c-s> :w<CR>
+:vmap <c-s> <Esc><c-s>gv
+:imap <c-s> <Esc><c-s>
+
+:nmap <c-S> :wa<CR>
+:vmap <c-S> <Esc><c-S>gv
+:imap <c-S> <Esc><c-S>
+
+:nmap <c-x> :xa<CR>
+:nmap <c-X> :wa<CR>:xa<CR>
+
+" Save your swp files to a less annoying place than the current directory.
+" If you have .vim-swap in the current directory, it'll use that.
+" Otherwise it saves it to ~/.vim/swap, ~/tmp or .
+if isdirectory($HOME . '/.vim/swap') == 0
+  :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+endif
+set directory=./.vim-swap//
+set directory+=~/.vim/swap//
+set directory+=~/tmp//
+set directory+=.
+
+" viminfo stores the the state of your previous editing session
+set viminfo+=n~/.vim/viminfo
+
+if exists("+undofile")
+  " undofile - This allows you to use undos after exiting and restarting
+  " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+  " :help undo-persistence
+  " This is only present in 7.3+
+  if isdirectory($HOME . '/.vim/undo') == 0
+    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  endif
+  set undodir=./.vim-undo//
+  set undodir+=~/.vim/undo//
+  set undofile
+endif
+
+
+autocmd FileType scss setlocal shiftwidth=2 tabstop=2
+autocmd FileType less setlocal shiftwidth=2 tabstop=2
+" remove trailing whitespace
+autocmd BufWritePre *.php :%s/\s\+$//e
+:keepj BufWritePre
+
+set viminfo='20,\"1000
+
+" syntax highlighting
+if has("syntax")
+  syntax on
+endif
+
+
+" Support 256 colors
+" set t_Co=256
+set laststatus=2
+set showcmd
+
+au BufRead,BufNewFile *.scss set filetype=scss

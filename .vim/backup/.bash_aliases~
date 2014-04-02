@@ -1,0 +1,126 @@
+# Open last modified file in vim
+alias Vim="vim `ls -t | head -1`"
+
+# Find top 5 big files
+alias findbig="find . -type f -exec ls -s {} \; | sort -n -r | head -5"
+
+# Grep for a bash process
+alias psg="ps -aux Â¦ grep bash"
+
+# List including hidden files with indicator and color
+alias ls='ls --color=always'
+
+# List in long format
+alias ll='ls -l'
+
+# To clear all the history and screen
+alias hcl='history -c; clear'
+
+# Make basic commands interactive, and verbose
+alias cp="cp -iv"      # interactive
+alias rm="rm -i"      # interactive
+alias mv="mv -iv"       # interactive, verbose
+alias grep="grep -irns --color"  # ignore case, recursive, line number, supress error messages about nonexistent files, use color
+
+# Easy to use aliases for frequently used commands
+alias open="gnome-open"
+alias x="exit"
+alias ZZ="exit" # because vim
+
+# Clear the screen and list file
+alias cls='clear;ls'
+alias cll='clear && ll'
+
+# Filesystem diskspace usage
+alias dus='df -h'
+
+# To navigate to common directories
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ~='cd ~'
+
+# swp files
+alias .fswp='find . -name "*.swp"'
+alias .vswp='cd ~/.vim/swap'
+alias .rmswp='rm -f *.swp'
+alias .rmswo='rm -f *.swo'
+
+# common greps
+alias .ffunc='grep -E "private function|public function|protected function" '
+
+# firefox lock remove
+alias rm_fire_lock='/bin/rm  .mozilla/firefox/9m0hzh3b.default/.parentlock'
+
+# install linux headers for vmware.
+alias lhup='sudo apt-get install -y linux-headers-$(uname -r)'
+alias .uup='sudo apt-get upgrade -y'
+
+# edit commonly tweaked files
+alias .vba='vim ~/.bash_aliases'
+alias .sba='source ~/.bashrc'
+alias .vvrc='vim ~/.vimrc'
+
+# server aliases
+alias .sshput='ssh-copy-id -i ~/.ssh/id_rsa.pub '
+alias .cbdl3619='ssh jtegwen@cbdl3619'
+alias .bi2='ssh jtegwen@bi2.caringbridge.org'
+alias .devel='ssh jtegwen@development.caringbridge.org'
+alias .test='ssh jtegwen@test.caringbridge.org'
+
+# directories
+alias .uo='cd ~/Ubuntu\ One'
+alias .uocb='cd ~/Ubuntu\ One/CaringBridge'
+alias .db='cd ~/Dropbox'
+alias .per='cd ~/Dropbox/personnel'
+
+# git commands
+alias .gpush='git push origin '
+alias .gpull='git pull upstream master'
+alias .gfetch='git fetch upstream'
+alias .gco='git checkout '
+alias .gmaster='git checkout master'
+alias .gst='git status'
+alias .gdf='git diff'
+alias .gwdf='git diff --word-diff'
+alias .gcom='git commit -a'
+alias .gnewhead='git checkout upstream/master'
+alias .gcp='git cherry-pick '
+
+alias .gignore='git update-index --assume-unchanged '
+alias .gunignore='git update-index --no-assume-unchanged '
+alias .grefresh='git update-index --verbose --really-refresh'
+
+alias .rmorig='find . -type f -name "*.orig" -exec rm -f {} \;'
+
+
+# vagrant commands
+alias .vup='.net && vagrant up'
+alias .vssh='vagrant ssh'
+alias .vdown='vagrant suspend'
+
+# project specific commands
+## NET
+alias .net='cd ~/projects/platform'
+alias .nhead='cd ~/projects/net-master'
+alias .nmod='.net && cd module'
+alias .nsite='.net && cd module/Site/src/Site'
+alias .nvsite='.net && cd module/Site/view/site'
+alias .nadmin='.net && cd module/Admin/src/Admin'
+alias .nvadmin='.net && cd module/Admin/view/admin'
+alias .nnet='.net && cd module/Network/src/Network'
+alias .nvnet='.net && cd module/Network/view/network'
+alias .ncorp='.net && cd module/Corporate/src/Corporate'
+alias .nvcorp='.net && cd module/Corporate/view/corporate'
+alias .napi='.net && cd module/Api/src/Api'
+alias .nlog='.net && cd logs && tail -F phperrors.log'
+alias .nrebuild='.net && .gpull && ant'
+alias .nbranch='git checkout -b'
+alias .ned='cd Entity/Definition'
+
+## NET deploy 
+alias .dep='cd ~/projects/deploy'
+alias .newdep='.dep && .gfetch && .gpull && .gco -b '
+
+## AND
+alias .and='cd ~/projects/sites-android'
+
